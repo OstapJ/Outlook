@@ -16,7 +16,7 @@ import java.lang.reflect.InvocationTargetException;
                 "html:target/cucumber-html-report"
         },
         glue = { "com.outlook.step" },
-        features = { "classpath:com/outlook/feature/" }
+        features = { "classpath:com.outlook.feature/responsiveDesign.feature" }
 )
 public class RunAcceptanceTest {
     @BeforeClass

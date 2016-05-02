@@ -12,20 +12,6 @@ Feature: Login
       | Password | Password1!$$            |
     Then Mail Outlook page is displayed
 
-  @positive
-  @logout
-  Scenario: Verify that user credentials are hold on when Keep me signed in functionality is used
-    Given I navigate to Login page
-    And I fill the following user credentials:
-      | Email    | geller.ross@outlook.com |
-      | Password | Password1!$$            |
-    When I select to keep me signed in
-    And I click log in
-    Then Mail Outlook page is displayed
-    When I reopen the browser
-    When I navigate to Login page
-    Then Login page is displayed
-
   @negative
   Scenario Outline: Verify login with with incorrect credentials
     Given I navigate to Login page
@@ -39,11 +25,19 @@ Feature: Login
       | robin@outlook.com       | Password1!$$ | That Microsoft account doesn't exist. Enter a different account or get a new one.         |
       | geller.ross@outlook.com | Password1    | That password is incorrect. Be sure you're using the password for your Microsoft account. |
 
-
-
-
-
-
+  @positive
+  @logout
+  Scenario: Verify that user credentials are hold on when Keep me signed in functionality is used
+    Given I navigate to Login page
+    And I fill the following user credentials:
+      | Email    | geller.ross@outlook.com |
+      | Password | Password1!$$            |
+    When I select to keep me signed in
+    And I click log in
+    Then Mail Outlook page is displayed
+    When I reopen the browser
+    When I navigate to Login page
+    Then Mail Outlook page is displayed
 
 
 
