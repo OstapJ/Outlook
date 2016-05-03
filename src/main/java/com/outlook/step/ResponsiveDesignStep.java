@@ -35,7 +35,7 @@ public class ResponsiveDesignStep extends AbstractStepDefinition
 	public void navigateToHomePage()
 	{
 		driver.manage().window().maximize();
-		driver.navigate().to(PropertiesProvider.getProperty(BaseConstants.APPLICATION_URL_KEY));
+		driver.navigate().to(PropertiesProvider.getProperty(BaseConstants.AKQA_URL_KEY));
 	}
 
 	/**

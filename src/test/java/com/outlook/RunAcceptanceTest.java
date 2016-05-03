@@ -21,8 +21,6 @@ import java.lang.reflect.InvocationTargetException;
 public class RunAcceptanceTest {
     @BeforeClass
     public static void initSelenium()
-            throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException,
-            IllegalAccessException
     {
         AbstractStepDefinition.init();
     }

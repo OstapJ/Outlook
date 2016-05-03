@@ -26,7 +26,7 @@ public class LoginStep extends AbstractStepDefinition
 	@When("^I navigate to Login page$")
 	public void navigateToLoginPage()
 	{
-		driver.navigate().to(PropertiesProvider.getProperty(BaseConstants.APPLICATION_URL_KEY));
+		driver.navigate().to(PropertiesProvider.getProperty(BaseConstants.OUTLOOK_URL_KEY));
 		waitForPageLoad(10);
 	}
 
