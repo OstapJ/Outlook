@@ -1,8 +1,5 @@
 package com.outlook;
 
-/**
- * Created by Ievgen_Ostapenko on 5/2/2016.
- */
 public enum Devices
 {
 

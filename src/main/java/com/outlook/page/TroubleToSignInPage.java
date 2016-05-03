@@ -1,10 +1,10 @@
 package com.outlook.page;
 
-import java.util.List;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
 
 public class TroubleToSignInPage extends AbstractPage
 {
@@ -16,7 +16,6 @@ public class TroubleToSignInPage extends AbstractPage
 
 	@FindBy(xpath = "//span[contains(text(), 'I forgot my password')]/preceding-sibling::input[@name='whyResetRadio']")
 	private WebElement forgotMyPasswordRadioButton;
-
 
 	@FindBy(xpath = "//span[contains(text(), 'I know my password, but can't sign in')]/preceding-sibling::input[@name='whyResetRadio']")
 	private WebElement cannotSignInRadioButton;
@@ -78,6 +77,5 @@ public class TroubleToSignInPage extends AbstractPage
 
 	@FindBy(id = "howCompromisedDropdown")
 	private WebElement howCompromisedDropDown;
-
 
 }

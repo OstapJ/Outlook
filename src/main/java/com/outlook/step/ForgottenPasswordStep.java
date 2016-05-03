@@ -1,30 +1,27 @@
 package com.outlook.step;
 
-import static org.junit.Assert.assertTrue;
-
-import java.util.Map;
-import java.util.stream.Collectors;
-
-import com.outlook.driver.BaseSelenium;
+import com.outlook.driver.AbstractStepDefinition;
 import com.outlook.page.LoginPage;
 import com.outlook.page.RecoverYourAccountPage;
 import com.outlook.page.TroubleToSignInPage;
 import com.outlook.property.PropertiesProvider;
-
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class ForgottenPasswordStep extends BaseSelenium
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import static org.junit.Assert.assertTrue;
+
+public class ForgottenPasswordStep extends AbstractStepDefinition
 {
 
 	LoginPage loginPage = new LoginPage(driver);
 	TroubleToSignInPage troubleToSignInPage = new TroubleToSignInPage(driver);
 	RecoverYourAccountPage recoverYourAccountPage = new RecoverYourAccountPage(driver);
 
-
-
 	/**
-	 * Logs in into application with specified Email and Password
+	 * Recovers the password for the given login
 	 * <p>
 	 * <b>Date Table Headers:</b> <ul> <li>Email <li>Password </ul>
 	 *
@@ -49,7 +46,8 @@ public class ForgottenPasswordStep extends BaseSelenium
 	public void verifyCaptchaIsDisplayed()
 	{
 		assertTrue("It isn't a Recover your account page",
-				recoverYourAccountPage.getPageTitle().contains(PropertiesProvider.getProperty("recoverYourAccountPage.title")));
+				recoverYourAccountPage.getPageTitle()
+						.contains(PropertiesProvider.getProperty("recoverYourAccountPage.title")));
 	}
 
 }

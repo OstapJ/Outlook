@@ -1,25 +1,20 @@
 package com.outlook.step;
 
 import com.outlook.BaseConstants;
-import com.outlook.driver.BaseSelenium;
+import com.outlook.driver.AbstractStepDefinition;
 import com.outlook.page.LoginPage;
 import com.outlook.page.OutlookMailPage;
 import com.outlook.property.PropertiesProvider;
-
 import cucumber.api.java.After;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
-import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.openqa.selenium.Cookie;
-
-public class LoginStep extends BaseSelenium
+public class LoginStep extends AbstractStepDefinition
 {
 
 	LoginPage loginPage = new LoginPage(driver);
@@ -36,13 +31,12 @@ public class LoginStep extends BaseSelenium
 	}
 
 	/**
-	 * Navigates to Outlook page
+	 * Logs out from the Outlook page
 	 */
 	@After(value = "@logout")
 	@When("^I log out from Outlook$")
 	public void logout() throws InterruptedException
 	{
-		waitForPageLoad(10);
 		outlookMailPage.getProfileSection().click();
 		outlookMailPage.getSignOutLink().click();
 		waitForPageLoad(10);
@@ -63,7 +57,6 @@ public class LoginStep extends BaseSelenium
 		fillLoginForm(credentials);
 		clickLogin();
 		waitForPageLoad(10);
-
 	}
 
 	/**
@@ -100,29 +93,6 @@ public class LoginStep extends BaseSelenium
 		loginPage.getKeepMeSignedInCheckbox().click();
 	}
 
-	//	/**
-	//	 * This step logs out of Outlook by opening a drop-down and clicking on LogOut link
-	//	 */
-	//	@When("^I close the Browser$")
-	//	public void logout()
-	//	{
-	//
-	//		driver.close();
-	//		cookies = driver.manage().getCookies();
-	//
-	//	}
-
-	/**
-	 * This step logs out of Outlook by opening a drop-down and clicking on LogOut link
-	 */
-	@When("^I refresh the page$")
-	public void refreshPage()
-	{
-		driver.navigate().refresh();
-		waitForPageLoad(10);
-
-	}
-
 	/**
 	 * This step logs out of Outlook by opening a drop-down and clicking on LogOut link
 	 */
@@ -153,8 +123,7 @@ public class LoginStep extends BaseSelenium
 	}
 
 	/**
-	 * Verifies the specified error message on the page- first validates the error message title and then the actual
-	 * message.
+	 * Verifies the specified error message on the page
 	 *
 	 * @param message
 	 * @throws Throwable

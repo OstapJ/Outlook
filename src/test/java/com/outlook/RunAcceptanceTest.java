@@ -1,6 +1,6 @@
 package com.outlook;
 
-import com.outlook.driver.BaseSelenium;
+import com.outlook.driver.AbstractStepDefinition;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import org.junit.AfterClass;
@@ -16,7 +16,7 @@ import java.lang.reflect.InvocationTargetException;
                 "html:target/cucumber-html-report"
         },
         glue = { "com.outlook.step" },
-        features = { "classpath:com.outlook.feature/responsiveDesign.feature" }
+        features = { "classpath:com.outlook.feature/" }
 )
 public class RunAcceptanceTest {
     @BeforeClass
@@ -24,11 +24,11 @@ public class RunAcceptanceTest {
             throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException,
             IllegalAccessException
     {
-        BaseSelenium.init();
+        AbstractStepDefinition.init();
     }
     @AfterClass
     public static void closeSelenium(){
-        BaseSelenium.close();
+        AbstractStepDefinition.close();
     }
 
 }
